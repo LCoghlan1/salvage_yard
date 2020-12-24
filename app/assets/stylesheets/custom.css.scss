@@ -1,6 +1,4 @@
-@import "bootstrap/dist/scss/bootstrap";
-
-/* Sticky Footer Classes */
+@import "bootstrap/scss/bootstrap";
 
 html,
 body {
@@ -13,4 +11,35 @@ body {
 
 #sticky-footer {
   flex-shrink: none;
+}
+
+#home-container {
+    margin-top: 25px;
+}
+
+.jumbotron {
+    height: 80vh;
+    background-image: asset-url('home.jpg');
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+}
+
+.card {
+  margin-bottom: 25px;
+  margin-right: 10px;
+}
+
+@media (max-width: 768px) {
+  
+  .card {
+    width: 100%;
+  }
+  
+  .jumbotron {
+    height: 80vh;
+    background-image: asset-url('stylish-chair.jpg');
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+}
+  
 }
