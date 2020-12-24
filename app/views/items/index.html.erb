@@ -25,7 +25,9 @@
     <% end %>
 
   </div>
-  <%= link_to 'Add New Item', new_item_path, class: "btn btn-primary"%>
+  <% if session[:login] == 1 %> 
+    <%= link_to 'Add New Item', new_item_path, class: "btn btn-primary"%>
+  <% end %>
 </div>
 
 

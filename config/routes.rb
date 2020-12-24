@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   
+  resources :reviews
   resources :items
   root 'static_pages#home'
   
