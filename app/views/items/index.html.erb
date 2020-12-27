@@ -7,7 +7,6 @@
   <div class="row">
     <% @items.each do |item| %>
     
-    <div class="col-sm">
         <div class="card" style="max-width: 18rem;">
           <%= link_to image_tag item.image_url, class: "card-img-top" %>
           <div class="card-body">
@@ -19,15 +18,13 @@
             <%= link_to 'Show', item, class: "btn btn-primary"%>
           </div>
         </div>
-    </div>
+
   
   
     <% end %>
 
   </div>
-  <% if session[:login] == 1 %> 
     <%= link_to 'Add New Item', new_item_path, class: "btn btn-primary"%>
-  <% end %>
 </div>
 
 

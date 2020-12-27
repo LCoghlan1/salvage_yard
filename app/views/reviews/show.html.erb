@@ -20,5 +20,9 @@
   <%= @review.updated_at %>
 </p>
 
-<%= link_to 'Edit', edit_review_path(@review) %> |
-<%= link_to 'Back', reviews_path %>
+<% if logged_in? && (@article.user == current_user || current_user.admin?) %>
+  <%= link_to 'Edit', edit_review_path(@review), class: "btn btn-outline-secondary" %> 
+  <%= link_to "Delete", review_path(review), class: "btn btn-outline-danger", method: :delete, data: {confirm: "Are you sure?"} %>
+<% end %>
+
+<%= link_to 'Back', reviews_path, class: "btn btn-outline-secondary"%>

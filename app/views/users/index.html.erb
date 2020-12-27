@@ -1,27 +1,25 @@
+<h1 class="text-center mt-4">Current Profiles</h1>
+
 <div class="container">
-      <% @reviews.each do |review| %>
+      <% @users.each do |user| %>
       
       <div class="row justify-content-md-center">
          <div class="col-8 mt-4">
               <div class="card text-center shadow mb-5 bg-white rounded">
                 <div class="card-header font-italic">
                   <!--display user name above review-->
-                  <% if review.user %>
-                    by <%=link_to review.user.username, user_path(review.user)%>
-                  <% end %>
+                <%=link_to user.username, user %>
                 </div>
                 <div class="card-body">
-                  <h5 class="card-title"><%= link_to review.title, review_path(review) %></h5>
-                  <p class="card-text"><%= truncate(review.description, length: 50) %></p>
-                  <%= link_to "View", review_path(review), class: "btn btn-outline-primary" %>
+                  <p class="card-text"><%= pluralize(user.reviews.count, "review") %></p>
+                  <%= link_to "View Profile", user, class: "btn btn-outline-primary" %>
                   <% if logged_in? && (review.user == current_user || current_user.admin?) %>
-                    <%= link_to "Edit", edit_review_path(review), class: "btn btn-outline-secondary" %>
+                    <%= link_to "Edit", edit_user_path(user), class: "btn btn-outline-secondary" %>
                     <%= link_to "Delete", review_path(review), class: "btn btn-outline-danger", method: :delete, data: {confirm: "Are you sure?"} %>
                   <% end %>
                 </div>
                 <div class="card-footer text-muted">
-                  <small>Created <%= time_ago_in_words(review.created_at) %> ago,
-                  edited <%= time_ago_in_words(review.updated_at) %> ago</small>
+                  <small>Joined <%= time_ago_in_words(user.created_at) %> ago</small>
                 </div>
                </div>
           </div>
