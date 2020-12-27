@@ -50,7 +50,7 @@ class ReviewsController < ApplicationController
 
   # DELETE /reviews/1
   def destroy
-      @article.destroy
+      @review.destroy
       flash[:notice] = "Review successfully deleted"
       redirect_to review_path
   end
