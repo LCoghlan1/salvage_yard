@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   resources :users, except: [:new]
   resources :reviews
   resources :items
+  
   root 'static_pages#home'
   
   get 'about', to: 'static_pages#about'
@@ -21,6 +22,22 @@ Rails.application.routes.draw do
   get '/cart/remove/:id' => 'cart#remove'
   get '/cart/reduce/:id' => 'cart#reduce'
   get '/cart/increase/:id' => 'cart#increase'
+  
+  get 'orderitems/index'
+  get 'orderitems/show'
+  get 'orderitems/new'
+  get 'orderitems/edit'
+  
+  get '/checkout' => 'cart#createOrder'
+
+  
+  resources :users do
+    resources :orders
+  end
+  
+  resources :orders do 
+    resources :orderitems
+  end
   
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

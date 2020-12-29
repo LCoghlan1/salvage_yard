@@ -50,7 +50,7 @@ class ReviewsController < ApplicationController
 
   # DELETE /reviews/1
   def destroy
-      @review.destroy
+      @article.destroy
       flash[:notice] = "Review successfully deleted"
       redirect_to review_path
   end
@@ -66,7 +66,7 @@ class ReviewsController < ApplicationController
    
    def require_same_user
       if current_user != @review.user && !current_user.admin?
-         flash[:alert] = "Don't be tryin to mess with other peoples' reviews"
+         flash[:alert] = "Don't be tryin to mess with other peoples' review"
          redirect_to @review
       end
    end

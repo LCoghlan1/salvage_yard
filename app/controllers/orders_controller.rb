@@ -1,5 +1,8 @@
 class OrdersController < ApplicationController
   before_action :set_order, only: [:show, :edit, :update, :destroy]
+  before_action :require_user
+  # Important this is after require_user as above code needs to run first
+  before_action :require_same_user
 
   # GET /orders
   # GET /orders.json
@@ -75,4 +78,5 @@ class OrdersController < ApplicationController
     def order_params
       params.require(:order).permit(:order_date, :user_id, :status)
     end
+    
 end

@@ -1,0 +1,20 @@
+<h1>Orderitems#index</h1>
+
+<h2>Order Items</h2>
+
+ <table id="customers">
+   <% @orderitems.each do |orderitem| %>
+      <tr>
+        <td><%= orderitem.created_at %></td>
+        
+        <td><%= orderitem.title %></td>
+       <td><%= orderitem.order_id %></td>
+       
+      </tr>
+    <% end %>
+ 
+   <tr></tr>
+   </table>
+      
+   </div>
+
