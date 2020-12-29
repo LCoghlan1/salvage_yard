@@ -1,0 +1,76 @@
+<div class="container mt-4">
+    
+    <% if @cart.empty? %>
+    
+    <h1> Your cart is empty</h1>
+     
+    <% else %>
+    
+        <table id="customers">
+            
+            <% total = 0 %>
+            
+            <tr>
+                <th></th>
+                <th>Item</th>
+                <th></th>
+                <th>Quantity</th>
+                <th></th>
+                <th>Price</th>
+                <th></th>
+                <th>Total Price</th>
+            </tr>
+            
+            
+            <% @cart.each do |id, quantity| %>
+                
+            <% item = Item.find_by_id(id) %>
+                
+            <tr>
+                <td>
+                    <div class="image">
+                        <%= link_to (image_tag item.image_url, :style =>"height:40px"), item %>
+                    </div>
+                    
+                </td>
+                    
+                <td class="title"><%= link_to item.title, item %></td>
+                <td><a href="cart/reduce/<%= item.id %>" class="btn btn-primary">-</a></td>
+                <td class="quantity"><%= quantity %></td>
+                <td><a href="cart/increase/<%= item.id %>" class="btn btn-primary" >+</a></td>
+                <td><a href="/cart/remove/<%= item.id %>">Remove From Cart</a></td>
+                <td class="price"><%= number_to_currency(item.price, :unit =>"€") %></td>
+                <td class="price"><%= number_to_currency(quantity * item.price, :unit =>"€") %></td>
+                
+            </tr>
+                
+            <% total += quantity * item.price %>
+    
+            <% end %>
+            
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td>Grand Total: </td>
+                <td>
+                    <%= number_to_currency(total, :unit => "€") %>
+                </td>
+            </tr>
+            
+        </table>
+    
+    <% end %>
+    
+    <% if !@cart.empty? %>
+    
+        <a href="/items" class="btn btn-primary mt-4">Continue Shopping</a>
+        <a href="/cart/clear" class="btn btn-primary mt-4">Clear Cart</a>
+        <a href="/checkout/" class="btn btn-primary mt-4">Checkout</a>
+
+    <% end %>
+
+</div>

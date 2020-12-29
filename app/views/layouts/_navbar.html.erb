@@ -20,8 +20,6 @@
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
           <%= link_to "Our Company", about_path, class: "dropdown-item" %>
           <%= link_to "Our Reviews", reviews_path, class: "dropdown-item" %>
-          <div class="dropdown-divider"></div>
-          <a class="dropdown-item" href="#">Something else here</a>
         </div>
       <% if logged_in? %>
         <li class="nav-item dropdown">
@@ -43,7 +41,11 @@
           <%= link_to 'Sign up', signup_path, class: "nav-link" %>
         </li>
       <% end %>
-  
+      <% if logged_in? %>
+        <li class="nav-item">
+          <%= link_to "View Cart", "/cart",class: "nav-link" %>
+        </li>
+      <% end %>
     </ul>
     <!--<form class="form-inline my-2 my-lg-0">
       <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
