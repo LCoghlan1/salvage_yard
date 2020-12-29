@@ -1,20 +1,22 @@
-<p id="notice"><%= notice %></p>
-
-<div class="container">
+ <p id="notice"><%= notice %></p>
+ 
+ <div class="container">
 
   <h1>Items</h1>
   
+  <% if @items.length == 0 %>
+   <br />
+   <h2>There are currently no products in this category</h2>
+  <% end %>
+  
   <div class="row">
     <% @items.each do |item| %>
-    
-    
-    
+
         <div class="card" style="max-width: 18rem;">
           <%= link_to (image_tag item.image_url, class: "card-img-top"), item %>
           <div class="card-body">
             <h5 class="card-title"><%= item.title %></h5>
             <p class="card-text"><%= item.description %></p>
-            <p class="card-text">Category: <%= item.category %></p>
             <p class="card-text">€<%= item.price %></p>
             <%= link_to 'Edit', edit_item_path(item), class: "btn btn-primary" if current_user.admin?%>
             <%= link_to 'Show', item, class: "btn btn-primary"%>
@@ -25,9 +27,4 @@
 
   </div>
     <%= link_to 'Add New Item', new_item_path, class: "btn btn-primary" if current_user.admin?%>
-    <%= link_to 'Add New Category', new_category_path, class: "btn btn-primary" if current_user.admin?%>
 </div>
-
-
-
-

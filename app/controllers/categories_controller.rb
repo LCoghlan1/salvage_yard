@@ -7,13 +7,9 @@ class CategoriesController < ApplicationController
     @categories = Category.all
   end
 
-
- 
   # GET /categories/1
   # GET /categories/1.json
   def show
-  #  logger.debug("show " + params[:id])
-  #  set_category
   end
 
   # GET /categories/new
@@ -69,10 +65,9 @@ class CategoriesController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_category
       @category = Category.find(params[:id])
-     # @category = Category.where(:title => params[:id])
     end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
+    # Only allow a list of trusted parameters through.
     def category_params
       params.require(:category).permit(:title, :description, :image)
     end

@@ -1,9 +1,12 @@
 Rails.application.routes.draw do
   
+  resources :categories
   resources :users, except: [:new]
   resources :reviews
   resources :items
   
+  post '/search' => 'items#search'
+
   root 'static_pages#home'
   
   get 'about', to: 'static_pages#about'
@@ -15,6 +18,8 @@ Rails.application.routes.draw do
   get 'login', to: 'sessions#new'
   post 'login', to: 'sessions#create'
   delete 'logout', to: 'sessions#destroy'
+  
+  get '/category/:title' => 'static_pages#category'
 
   get '/cart' => 'cart#index'
   get '/cart/clear' => 'cart#clear'

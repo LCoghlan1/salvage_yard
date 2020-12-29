@@ -1,0 +1,19 @@
+<div class="container">
+
+  <h1>Our Stock</h1>
+  
+  <div class="row">
+    <% @categories.each do |category| %>
+    
+        <div class="card" style="max-width: 18rem;">
+          <%= link_to (image_tag category.image, class: "card-img-top"), category %>
+          <div class="card-body">
+            <h5 class="card-title"><%= category.title %></h5>
+            <p class="card-text"><%= category.description %></p>
+            <a href="/category/<%= category.title %>" class="btn btn-outline-primary">Show</a>
+          </div>
+        </div>
+    <% end %>
+
+  </div>
+</div>
