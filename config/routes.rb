@@ -1,13 +1,14 @@
 Rails.application.routes.draw do
   
   resources :categories
+  
+  root 'static_pages#home'
+  
   resources :users, except: [:new]
   resources :reviews
   resources :items
   
   post '/search' => 'items#search'
-
-  root 'static_pages#home'
   
   get 'about', to: 'static_pages#about'
   
