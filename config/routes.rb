@@ -34,6 +34,8 @@ Rails.application.routes.draw do
   get 'orderitems/edit'
   
   get '/checkout' => 'cart#createOrder'
+  
+  get '/aboutSend/:id' => 'static_pages#aboutSend'
 
   
   resources :users do

@@ -2,14 +2,15 @@
  
  <div class="container">
 
-  <h1>Items</h1>
+  <h1>Items By Category</h1>
   
+   <div class="row">
   <% if @items.length == 0 %>
    <br />
-   <h2>There are currently no products in this category</h2>
+   <h2 >There are currently no products in this category</h2>
   <% end %>
   
-  <div class="row">
+    <div class="col-lg-4 d-flex align-items-stretch">
     <% @items.each do |item| %>
 
         <div class="card" style="max-width: 18rem;">
@@ -18,13 +19,12 @@
             <h5 class="card-title"><%= item.title %></h5>
             <p class="card-text"><%= item.description %></p>
             <p class="card-text">€<%= item.price %></p>
-            <%= link_to 'Edit', edit_item_path(item), class: "btn btn-primary" if current_user.admin?%>
             <%= link_to 'Show', item, class: "btn btn-primary"%>
             <a href="/cart/<%= item.id %>" class="btn btn-primary">Add To Cart</a>
+          </div>
           </div>
         </div>
     <% end %>
 
   </div>
-    <%= link_to 'Add New Item', new_item_path, class: "btn btn-primary" if current_user.admin?%>
 </div>

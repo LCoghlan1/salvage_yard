@@ -1,6 +1,7 @@
 class ItemsController < ApplicationController
   before_action :set_item, only: [:show, :edit, :update, :destroy]
-
+  before_action :require_user, except: [:show, :index]
+  
   # GET /items
   def index
     @items = Item.all

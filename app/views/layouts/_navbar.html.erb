@@ -49,6 +49,10 @@
           <li><%= link_to "View Orders", orders_path, class: "nav-link"  %></li>
         </li>
       <% end %>
+      
+      <% if logged_in? && current_user.admin? %>
+        <%= link_to "User List", users_path, class: "nav-link" %>
+      <% end %>
     </ul>
     <li class="form-inline my-2 my-lg-0">
       <%=render 'layouts/search'%>

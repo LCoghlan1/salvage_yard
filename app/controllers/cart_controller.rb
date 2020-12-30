@@ -1,7 +1,7 @@
 class CartController < ApplicationController
   
-  
-  
+before_action :require_user
+
 def add
   
   # get the Id of the product

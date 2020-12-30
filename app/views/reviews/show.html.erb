@@ -1,28 +1,31 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Title:</strong>
-  <%= @review.title %>
-</p>
-
-<p>
-  <strong>Description:</strong>
-  <%= @review.description %>
-</p>
-
-<p>
-  <strong>Created at:</strong>
-  <%= @review.created_at %>
-</p>
-
-<p>
-  <strong>Updated at:</strong>
-  <%= @review.updated_at %>
-</p>
-
-<% if logged_in? && (@review.user == current_user || current_user.admin?) %>
-  <%= link_to 'Edit', edit_review_path(@review), class: "btn btn-outline-secondary" %> 
-  <%= link_to "Delete", review_path(@review), class: "btn btn-outline-danger", method: :delete, data: {confirm: "Are you sure?"} %>
-<% end %>
-
-<%= link_to 'Back', reviews_path, class: "btn btn-outline-secondary"%>
+  <h1 class="text-center mt-4"><%= @review.title %></h1>
+    
+    <div class="container">
+        <div class="row justify-content-md-center">
+           <div class="col-8 mt-4">
+                <div class="card text-center shadow mb-5 bg-white rounded">
+                  <div class="card-header font-italic">
+                    <!--display user name above article-->
+                  by <%= link_to @review.user.username, user_path(@review.user) %>
+                  </div>
+                  <div class="card-body">
+                      
+                    <!-- method keeps format it was typed in -->
+                    <div class="card-text"><%= simple_format(@review.description) %></div>
+                    
+                      <% if logged_in? && (@review.user == current_user || current_user.admin?) %>
+                        <%= link_to 'Edit', edit_review_path(@review), class: "btn btn-outline-secondary" %> 
+                        <%= link_to "Delete", review_path(@review), class: "btn btn-outline-danger", method: :delete, data: {confirm: "Are you sure?"} %>
+                      <% end %>
+                    <%= link_to "Return to all reviews", reviews_path, class: "btn btn-outline-secondary" %>
+                  </div>
+                  <div class="card-footer text-muted">
+                    <small>Created <%= time_ago_in_words(@review.created_at) %> ago,
+                    edited <%= time_ago_in_words(@review.updated_at) %> ago</small>
+                  </div>
+                 </div>
+            </div>
+        </div>
+    </div>

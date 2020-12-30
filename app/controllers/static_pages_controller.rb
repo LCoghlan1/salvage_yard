@@ -1,4 +1,5 @@
 class StaticPagesController < ApplicationController
+
   def home
     @categories = Category.all
   end
@@ -7,6 +8,11 @@ class StaticPagesController < ApplicationController
   end
 
   def about
+  end
+  
+  def aboutSend
+   @order = Order.find(params[:id])
+   @order.update_attribute(:status, "Paid with Paypal")
   end
   
   def category

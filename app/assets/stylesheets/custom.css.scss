@@ -1,5 +1,7 @@
 @import "bootstrap/scss/bootstrap";
 
+/* footer */
+
 html,
 body {
   height: 100%;
@@ -16,6 +18,9 @@ body {
 #home-container {
     margin-top: 25px;
 }
+
+
+/* home page */
 
 .jumbotron {
     height: 80vh;
@@ -40,6 +45,61 @@ body {
     background-image: asset-url('stylish-chair.jpg');
     background-size: 100% 100%;
     background-repeat: no-repeat;
-}
+  }
   
+}
+
+/* show items page */
+
+#itemsContainer {
+    width: 100%;
+    text-align: center;
+}
+
+
+#itemsContainer h1 {
+   display: block;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+
+.itemhols {
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 10px;
+    display: inline-block;
+    width: 22%;
+    padding:10px;
+    min-height: 300px;
+}
+
+
+.itemhols h1 {
+   display: block;
+    color: #4CAF50;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 20px
+}
+
+
+.itemhols p {
+   display: block;
+    color: #4CAF50;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 16px
+}
+
+
+
+.itemholsIm {
+    width: 30%; 
+    margin-left: auto; 
+    margin-right: auto; 
+    display: block;
 }

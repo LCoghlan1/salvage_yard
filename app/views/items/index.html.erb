@@ -7,25 +7,29 @@
   <div class="row">
     <% @items.each do |item| %>
     
-    
-    
-        <div class="card" style="max-width: 18rem;">
+    <div class="col-lg-4 d-flex align-items-stretch">
+  
+        <div class="card w-100" style="max-width: 18rem;">
           <%= link_to (image_tag item.image_url, class: "card-img-top"), item %>
           <div class="card-body">
             <h5 class="card-title"><%= item.title %></h5>
-            <p class="card-text"><%= item.description %></p>
+            <p class="card-text"><%= truncate(item.description, length: 40) %></p>
             <p class="card-text">Category: <%= item.category %></p>
-            <p class="card-text">€<%= item.price %></p>
-            <%= link_to 'Edit', edit_item_path(item), class: "btn btn-primary" if current_user.admin?%>
+            <p class="card-text"><%= number_to_currency(item.price, :unit => "€") %></p>
+            <%= link_to 'Edit', edit_item_path(item), class: "btn btn-primary" if current_user && current_user.admin? %>
             <%= link_to 'Show', item, class: "btn btn-primary"%>
-            <a href="/cart/<%= item.id %>" class="btn btn-primary">Add To Cart</a>
+            <% if logged_in? %>
+              <a href="/cart/<%= item.id %>" class="btn btn-primary">Add To Cart</a>
+            <% end %>
           </div>
         </div>
+      </div> 
+        
     <% end %>
 
   </div>
-    <%= link_to 'Add New Item', new_item_path, class: "btn btn-primary" if current_user.admin?%>
-    <%= link_to 'Add New Category', new_category_path, class: "btn btn-primary" if current_user.admin?%>
+    <%= link_to 'Add New Item', new_item_path, class: "btn btn-primary" if current_user && current_user.admin? %>
+    <%= link_to 'Add New Category', new_category_path, class: "btn btn-primary" if current_user && current_user.admin? %>
 </div>
 
 
