@@ -1,9 +1,12 @@
-<p id="notice"><%= notice %></p>
+<% provide(:title, "Reviews") %>
 
 <h1 class="text-center mt-4">Reviews</h1>
+
+<p class="text-center">
 <% if logged_in? %>
-    <%= link_to 'New Review', new_review_path %>
+    <%= link_to 'Add New Review', new_review_path, class: "btn btn-primary mt-4 mb-4" %>
 <% end %>
+</p>
 
 <%= render 'review' %>
 

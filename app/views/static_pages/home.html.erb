@@ -2,11 +2,15 @@
 
 <div class="container" id="home-container"> 
     <div class="jumbotron text-center">
-        <h1 class="display-4 bg-dark" style="color:white ">The Salvage Yard</h1>
+        <div class="display-4 bg-dark mb-4" style="color:white">
+            <h1>The Salvage Yard</h1>
+            <h5>by Luke Coghlan</h5>
+        </div>
         <p class="lead bg-dark" style="color:white">Leading provider of salvaged goods and materials</p>
         <hr class="my-4" style="color:white">
-        <%= link_to "Sign up", signup_path, class: "btn btn-secondary btn-lg" %>
-        <p class="mt-4" style="color:white">by Luke Coghlan</p>
+        <%= link_to "Register", signup_path, class: "btn btn-secondary btn-lg mr-2" %>
+        <%= link_to "Log In", login_path, class: "btn btn-secondary btn-lg ml-2" %>
+        
     </div>
 </div>
 
