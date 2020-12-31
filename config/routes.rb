@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   resources :users, except: [:new]
   resources :reviews
   resources :items
+  resources :contacts, only: [:new, :create]
   
   post 'message', to: 'messages#create'
   
@@ -17,7 +18,7 @@ Rails.application.routes.draw do
   
   get 'chat', to: 'chat#index'
   
-  get 'help', to: 'static_pages#help'
+  get 'help', to: 'contacts#new'
   
   get 'signup', to: 'users#new'
   

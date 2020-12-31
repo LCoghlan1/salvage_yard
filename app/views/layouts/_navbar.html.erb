@@ -10,9 +10,14 @@
       <li class="nav-item">
         <%= link_to "Stock", items_path, class: "nav-link" %>
       </li>
-      <li class="nav-item">
-        <%= link_to "Help", help_path, class: "nav-link" %>
-      </li>
+      
+      
+      <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Help</a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <%= link_to "Mail Us", help_path, class: "dropdown-item" %>
+            <%= link_to "Chat Now", chat_path, class: "dropdown-item" %>
+      </div>
       <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           About Us

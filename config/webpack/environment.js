@@ -5,6 +5,9 @@ environment.plugins.append('Provide',
         $: 'jquery',
         jQuery: 'jquery',
         Popper: ['popper.js', 'default']
+   
     })
 )
+
 module.exports = environment
+global.$ = require('jquery')  

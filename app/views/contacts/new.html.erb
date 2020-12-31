@@ -1,0 +1,34 @@
+<div class="container">
+    <h1 style= "text-align: center;">Mail Us</h1>
+    
+    <div class="form-group">
+        <%= form_for @contact do |f| %>
+        
+            <%= f.label :name %>
+            <%= f.text_field :name, class: "form-control", required: true %>
+        
+            <br>
+            
+            <%= f.label :email %>
+            <%= f.text_field :email, class: "form-control", required: true %>
+        
+            <br>
+            
+            <%= f.label :message %>
+            <%= f.text_area :message, rows: 10, class: "form-control", as: :text %>
+        
+            <br>
+            
+            <div class="hidden">
+                <%= f.label :nickname %>
+                <%= f.text_field :nickname, hint: 'leave blank' %>
+            </div>
+            <br>
+            
+            <%= f.submit 'Send Message', class: "btn btn-primary" %>
+        
+        <% end %>
+        
+    </div>
+    
+</div>
