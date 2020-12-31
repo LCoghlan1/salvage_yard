@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   
+ 
   resources :categories
   
   root 'static_pages#home'
@@ -8,9 +9,13 @@ Rails.application.routes.draw do
   resources :reviews
   resources :items
   
+  post 'message', to: 'messages#create'
+  
   post '/search' => 'items#search'
   
   get 'about', to: 'static_pages#about'
+  
+  get 'chat', to: 'chat#index'
   
   get 'help', to: 'static_pages#help'
   
@@ -46,6 +51,7 @@ Rails.application.routes.draw do
   resources :orders do 
     resources :orderitems
   end
+
   
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

@@ -1,0 +1,38 @@
+
+    <div class="container mt-4">
+      <div style="border-style: solid;">
+        <div class="ui feed">
+          <div class="event">
+            <div style="padding-top: 40px; padding-bottom: 40px; padding-bottom: 40px;">
+                     
+                   <% @messages.each do |message| %>
+                     <div class="ml-4">
+                       <div class="content">
+                           <em><%= message.user.username %></em>: <%= message.body %>
+                       </div>
+                     </div>
+                                        
+                   <% end %>
+            </div>
+
+
+                 </div>
+               </div>
+               
+               
+               
+         <div class="extra content">
+         <%= form_for(@message, html: {class: "ui reply form", role: "form"}, url: message_path, remote: true) do |f| %>
+         <div class="field">
+          <div class="col-10"> 
+            <%= f.text_field :body, class: "form-control", placeholder: "Enter message" %>
+            <%= f.submit "Add Message", class: "btn btn-primary mt-4 mb-4" %>
+          </div>
+          
+          <% end %>
+
+              </div>
+      </div>
+      </div>
+      </div>
+   

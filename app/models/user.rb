@@ -1,4 +1,5 @@
 class User < ApplicationRecord
+  has_many :messages
   has_many :orders
   before_save { self.email = email.downcase }
   has_many :reviews, dependent: :destroy
