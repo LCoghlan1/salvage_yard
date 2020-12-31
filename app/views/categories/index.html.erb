@@ -1,3 +1,6 @@
+<div class="container">
+
 <%=render 'layouts/categories'%>
 
 <%= link_to 'Add New Category', new_category_path, class: "btn btn-primary" if current_user && current_user.admin? %>
+</div>

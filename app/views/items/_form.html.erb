@@ -1,42 +1,76 @@
-<%= form_with(model: item) do |form| %>
-  <% if item.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(item.errors.count, "error") %> prohibited this item from being saved:</h2>
+<div class="container mt-4">
 
-      <ul>
-        <% item.errors.each do |error| %>
-          <li><%= error.full_message %></li>
-        <% end %>
-      </ul>
-    </div>
-  <% end %>
+    <div class="row justify-content-center">
+      
+        <div class="col-10">
 
-  <div class="field">
-    <%= form.label :title %>
-    <%= form.text_field :title %>
+          <%= render 'shared/errors', obj: @item %>
+          
+          <%= form_with(model: @item, class: "shadow p-3 mb-3 bg-light rounded", local: true) do |form| %>
+ 
+        
+              <div class="col-0">
+                <%= form.label :title, class: "col-2 col-form-label font-weight-bold" %>
+              </div>
+              <div class="form-group row">
+                <div class="col-12">
+                  <%= form.text_field :title, class: "form-control shadow rounded", placeholder: "Title" %>
+                </div>
+              </div>
+              
+              <div class="col-0">
+                <%= form.label :description, class: "col-2 col-form-label font-weight-bold" %>
+              </div>
+              <div class="form-group row">
+                <div class="col-12">
+                  <%= form.text_area :description, rows: 5, class: "form-control shadow rounded", placeholder: "Enter a description" %>
+                </div>
+              </div>
+              
+              <div class="col-0">
+                <%= form.label :price, class: "col-2 col-form-label font-weight-bold" %>
+              </div>
+              <div class="form-group row">
+                <div class="col-12">
+                  <%= form.text_field :price, class: "form-control shadow rounded", placeholder: "Enter the price" %>
+                </div>
+              </div>
+              
+              <div class="col-0">
+                <%= form.label :image_url, class: "col-2 col-form-label font-weight-bold" %>
+              </div>
+              <div class="form-group row">
+                <div class="col-12">
+                  <%= form.text_field :image_url, class: "form-control shadow rounded", placeholder: "Enter an image URL" %>
+                </div>
+              </div>
+              
+              <div class="col-0">
+                <%= form.label :category, class: "col-2 col-form-label font-weight-bold" %>
+              </div>
+              <div class="form-group row">
+                <div class="col-12">
+                  <%= form.text_field :category, class: "form-control shadow rounded", placeholder: "Enter a category" %>
+                </div>
+              </div>
+
+            <div>
+              <%= form.submit class: "btn btn-outline-primary mt-4" %>
+            </div>
+            <div>
+              <%= link_to 'Back', items_path, class: "btn btn-outline-danger mt-4" %>
+            </div>
+          
+          <% end %>
+          
+        </div>
+
+        
+      </div>
+      
   </div>
 
-  <div class="field">
-    <%= form.label :description %>
-    <%= form.text_area :description %>
-  </div>
 
-  <div class="field">
-    <%= form.label :price %>
-    <%= form.text_field :price %>
-  </div>
 
-  <div class="field">
-    <%= form.label :image_url %>
-    <%= form.text_field :image_url %>
-  </div>
+  
 
-  <div class="field">
-    <%= form.label :category %>
-    <%= form.text_field :category %>
-  </div>
-
-  <div class="actions">
-    <%= form.submit %>
-  </div>
-<% end %>

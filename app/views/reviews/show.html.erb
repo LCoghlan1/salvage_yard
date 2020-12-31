@@ -19,7 +19,7 @@
                         <%= link_to 'Edit', edit_review_path(@review), class: "btn btn-outline-secondary" %> 
                         <%= link_to "Delete", review_path(@review), class: "btn btn-outline-danger", method: :delete, data: {confirm: "Are you sure?"} %>
                       <% end %>
-                    <%= link_to "Return to all reviews", reviews_path, class: "btn btn-outline-secondary" %>
+                    <%= link_to "Return to all reviews", reviews_path, class: "btn btn-outline-secondary mt-4" %>
                   </div>
                   <div class="card-footer text-muted">
                     <small>Created <%= time_ago_in_words(@review.created_at) %> ago,

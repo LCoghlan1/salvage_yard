@@ -1,34 +1,36 @@
-<h2>You Searched Our Product Catalog For <%= @search_term %></h2>
-<% if @items.length == 0 %>
-<br />
-<h2>No products were found to match your search</h2>
-<% end %>
-<table class="catalog">
- <% @items.each do |item| %>
- <tr>
- <td>
- <div class="image">
- <%= link_to (image_tag item.image_url, :style => "height:100px"), item %>
- </div>
- <div class="title">
- <%= link_to item.title, item %>
- </div>
- <div class="description">
- <%= item.description %>
- </div>
- <div class="price">
- <%= number_to_currency(item.price, :unit => "€") %>
- </div>
- <div class="links">
- <% if logged_in? %>
- <%= link_to 'Edit', edit_item_path(item) %>
- <%= link_to 'Destroy', item, method: :delete, data: { confirm: 'Are you sure?' } %>
- <%else%>
+<div class="container">
 
- <a href="/cart/<%= item.id %>">Add to Cart</a>
- <%end%>
- </div>
- </td>
- </tr>
+ <h2>You Searched Our Product Catalogue For <%= @search_term %></h2>
+ <% if @items.length == 0 %>
+  <br />
+  <h2>No products were found to match your search</h2>
  <% end %>
-</table>
+ 
+   <div class="row mt-4">
+     <% @items.each do |item| %>
+     
+     <div class="col-lg-4 d-flex align-items-stretch">
+   
+         <div class="card w-100" style="max-width: 18rem;">
+           <%= link_to (image_tag item.image_url, class: "card-img-top"), item %>
+           <div class="card-body">
+             <h5 class="card-title"><%= item.title %></h5>
+             <p class="card-text"><%= truncate(item.description, length: 40) %></p>
+             <p class="card-text">Category: <%= item.category %></p>
+             <p class="card-text"><%= number_to_currency(item.price, :unit => "€") %></p>
+             <%= link_to 'Edit', edit_item_path(item), class: "btn btn-primary" if current_user && current_user.admin? %>
+             <%= link_to 'Show', item, class: "btn btn-primary"%>
+             <a href="/cart/<%= item.id %>" class="btn btn-primary">Add To Cart</a>
+ 
+           </div>
+         </div>
+       </div> 
+         
+     <% end %>
+ 
+   </div>
+     <%= link_to 'Add New Item', new_item_path, class: "btn btn-primary mb-4" if current_user && current_user.admin? %>
+     <%= link_to 'Add New Category', new_category_path, class: "btn btn-primary mb-4" if current_user && current_user.admin? %>
+ </div>
+</div>
+
