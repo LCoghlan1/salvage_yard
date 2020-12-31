@@ -73,6 +73,18 @@ Rails.application.configure do
   config.file_watcher = ActiveSupport::EventedFileUpdateChecker
   config.hosts << "a5a123cce1304c1f8dc6310ed78714ac.vfs.cloud9.us-east-1.amazonaws.com"
 
+  config.action_mailer.default_url_options = { host: "https://a5a123cce1304c1f8dc6310ed78714ac.vfs.cloud9.us-east-1.amazonaws.com/" }
+  config.action_mailer.delivery_method = :smtp
+  
+  ActionMailer::Base.smtp_settings = {
+    :address        => 'smtp.sendgrid.net',
+    :port           => '587',
+    :authentication => :plain,
+    :user_name      => ENV['SENDGRID_USERNAME'],
+    :password       => ENV['SENDGRID_PASSWORD'],
+    :domain         => 'heroku.com',
+    :enable_starttls_auto => true
+  }
   # Uncomment if you wish to allow Action Cable access from any origin.
   # config.action_cable.disable_request_forgery_protection = true
 
