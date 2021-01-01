@@ -52,12 +52,12 @@
 
     
         <tr>
-        <td>Order Total: €<%= @total %> </td>
+        <td>Order Total: <%= number_to_currency(@total, :unit => "€") %> </td>
         
-        <% shipping = 25 %>
+        <% shipping = 100 %>
         
         <% @overall = @total + shipping %>
-        <td>Shipping: €25</td>
+        <td>Shipping: €100</td>
         <td>Overall Order Total: <%= number_to_currency(@overall, :unit => "€") %></td>
         
         </tr>
