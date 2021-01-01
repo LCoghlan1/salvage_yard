@@ -4,21 +4,21 @@
 
   <h1>Items By Category</h1>
   
-   <div class="row">
+   <div class="row mt-4">
   <% if @items.length == 0 %>
    <br />
    <h2 >There are currently no products in this category</h2>
   <% end %>
-  
+      <% @items.each do |item| %>
     <div class="col-lg-4 d-flex align-items-stretch">
-    <% @items.each do |item| %>
 
-        <div class="card" style="max-width: 18rem;">
+
+        <div class="card w-100">
           <%= link_to (image_tag item.image_url, class: "card-img-top"), item %>
           <div class="card-body">
             <h5 class="card-title"><%= item.title %></h5>
             <p class="card-text"><%= item.description %></p>
-            <p class="card-text">€<%= item.price %></p>
+            <p class="card-text"><%= number_to_currency(item.price, :unit => "€") %></p>
             <%= link_to 'Show', item, class: "btn btn-primary"%>
             <a href="/cart/<%= item.id %>" class="btn btn-primary">Add To Cart</a>
           </div>

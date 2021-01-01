@@ -1,19 +1,24 @@
-<p id="notice"><%= notice %></p>
+<div class="container">
+  <br>
+  <h1>Our Stock Categories</h1>
+  <br>
+  <div class="row">
+    
+        <div class="col-lg-4 d-flex align-items-stretch">
+    
+          <div class="card w-100">
+            <%= link_to (image_tag @category.image, class: "card-img-top"), @category %>
+            <div class="card-body">
+              <h5 class="card-title"><%= @category.title %></h5>
+              <p class="card-text"><%= @category.description %></p>
+              <%= link_to 'Edit', edit_category_path, class: "btn btn-outline-primary" if current_user && current_user.admin? %>
+              <%= link_to 'Back', categories_path, class: "btn btn-outline-primary" %>
 
-<p>
-  <strong>Title:</strong>
-  <%= @category.title %>
-</p>
+            </div>
+            
+          </div>
+        </div>
 
-<p>
-  <strong>Description:</strong>
-  <%= @category.description %>
-</p>
+  </div>
+</div>
 
-<p>
-  <strong>Image:</strong>
-  <%= @category.image %>
-</p>
-
-<%= link_to 'Edit', edit_category_path(@category) %> |
-<%= link_to 'Back', categories_path %>
