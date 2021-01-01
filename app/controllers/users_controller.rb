@@ -5,6 +5,7 @@ class UsersController < ApplicationController
 
   def show
     @reviews = @user.reviews
+    @orders = @user.orders
   end
 
   def index

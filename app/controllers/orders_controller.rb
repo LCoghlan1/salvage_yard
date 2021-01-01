@@ -1,6 +1,9 @@
 class OrdersController < ApplicationController
   
   before_action :set_order, only: [:show, :edit, :update, :destroy]
+  before_action :require_user
+  before_action :require_admin_user
+
   
   # GET /orders
   # GET /orders.json
@@ -75,6 +78,13 @@ class OrdersController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def order_params
       params.require(:order).permit(:order_date, :user_id, :status)
+    end
+    
+    def require_admin_user
+      if !current_user.admin?
+         flash[:alert] = "Not allowed"
+         redirect_to root_path
+      end
     end
     
 end
