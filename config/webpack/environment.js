@@ -10,4 +10,4 @@ environment.plugins.append('Provide',
 )
 
 module.exports = environment
-global.$ = require('jquery')  
+ 
