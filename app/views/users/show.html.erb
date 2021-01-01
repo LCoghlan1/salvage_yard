@@ -47,10 +47,11 @@
 
 
 <% end %>
-
+ <div class="container mb-4">
 <div class="text-center mt-4">
   <h3>Reviews</h3>
   <p><%= pluralize(@user.reviews.count, "review") %></p>
 </div>
 
 <%= render 'reviews/review' %>
+</div>

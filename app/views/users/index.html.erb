@@ -10,8 +10,10 @@
               <div class="card text-center shadow mb-5 bg-white rounded">
                 <div class="card-header font-italic">
                   <!--display user name above review-->
-                <%=link_to user.username, user %>
+                <p><%=link_to user.username, user %></p>
                 </div>
+                <br>
+                <p>User ID: <%= user.id %></p>
                 <div class="card-body">
                   <p class="card-text"><%= pluralize(user.reviews.count, "review") %></p>
                   <%= link_to "View Profile", user, class: "btn btn-outline-primary" %>
