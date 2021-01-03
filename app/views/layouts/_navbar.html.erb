@@ -7,7 +7,7 @@
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" href="#">Stock</a>
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Stock</a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdown">
             <%= link_to "All Stock", items_path, class: "dropdown-item" %>
             <%= link_to "Categories", categories_path, class: "dropdown-item" %>
@@ -15,7 +15,7 @@
       </li>
       
       <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" href="#">Contact Us</a>
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Contact Us</a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdown">
             <%= link_to "Mail Us", help_path, class: "dropdown-item" %>
             <%= link_to "Chat Now", chat_path, class: "dropdown-item" %>
@@ -23,7 +23,7 @@
       </li>
       
       <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" href="#">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           About Us
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
@@ -32,7 +32,7 @@
         </div>
         <% if logged_in? %>
           <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" href="#">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
               <%= current_user.username %>'s Profile <%="[Admin]" if current_user.admin? %></a>
             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
               <%= link_to "View Profile", user_path(current_user), class: "dropdown-item" %>
@@ -60,7 +60,7 @@
       
       <% if logged_in? && current_user.admin? %>
         <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" href="#">Admin Actions</a>
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Admin Actions</a>
             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
               <%= link_to "Add New Item", new_item_path, class: "dropdown-item" %>
               <%= link_to "Add New Category", new_category_path, class: "dropdown-item" %>

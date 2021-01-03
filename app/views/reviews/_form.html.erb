@@ -6,7 +6,7 @@
         <div class="col-10">
             
             <!--create obj to send to errors partial - allows partial to be used with multiple instances-->
-
+            <%= render 'shared/errors', obj: @review %>
             
             <%= form_with(model: @review, class: "shadow p-3 mb-3 bg-light rounded", local: true) do |f| %>
                 <div class="col-0">
